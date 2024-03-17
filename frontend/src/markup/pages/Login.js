@@ -1,10 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import the login Component
+import LoginForm from '../components/LoginForm/LoginForm';
 
 function Login(props) {
   return (
     <div>
-      <h1>login</h1>
+      <LoginForm/>
     </div>
   )
 }
