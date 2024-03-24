@@ -1,4 +1,3 @@
-
 // Import the query function from the db.config.js file 
 const conn = require("../config/db.config");
 // Import the fs module to read our sql file  

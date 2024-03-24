@@ -1,50 +1,20 @@
-
-// import mysql2 wraper promise
+// Import the mysql2 module Promise Wrapper 
 const mysql = require('mysql2/promise');
-//Prepare the connection parameters we use to connect to the database .env file
-require('dotenv').config(); 
+// Prepare connection parameters we use to connect to the database
 const dbConfig = {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
+  connectionLimit: 10,
+  socketPath: process.env.DB_SOCKET_PATH,
+  password: process.env.DB_PASS,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
 }
-// create the connection to pool
+// Create the connection pool  
 const pool = mysql.createPool(dbConfig);
-// prepare afunction that will excute the sql asynchronously
+// Prepare a function that will execute the SQL queries asynchronously
 async function query(sql, params) {
-    const[rows, fields] = await pool.execute(sql, params);
-    return rows
+  const [rows, fields] = await pool.execute(sql, params);
+  return rows;
 }
 // Export the query function for use in the application 
-module.exports = {query};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports = { query };

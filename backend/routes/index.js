@@ -1,18 +1,18 @@
-// import express module
+// Import the express module 
 const express = require('express');
-// call the Router method from express to create the router
+// Call the router method from express to create the router 
 const router = express.Router();
-// import the install router
+// Import the install router 
 const installRouter = require('./install.routes');
-// import the employee  router
+// Import the employee routes 
 const employeeRouter = require('./employee.routes');
-// import thr login router
-const loginRouter = require('./login.routes');
-// add the install router to the main router
+// Import the login routes 
+const loginRoutes = require("./login.routes");
+// Add the install router to the main router 
 router.use(installRouter);
-// add the employee router to the main router
+// Add the employee routes to the main router 
 router.use(employeeRouter);
-// add the login router to the main router
-router.use(loginRouter);
+// Add the login routes to the main router
+router.use(loginRoutes);
 // Export the router
-module.exports = router;
+module.exports = router; 
